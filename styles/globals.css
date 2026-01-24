@@ -1,0 +1,676 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff;
+  color: #1f2937;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Cricket Animation Keyframes */
+@keyframes bowler {
+  0% { 
+    transform: translateX(0) rotate(0deg); 
+  }
+  25% { 
+    transform: translateX(-10px) rotate(-15deg); 
+  }
+  50% { 
+    transform: translateX(-20px) rotate(-30deg); 
+  }
+  75% { 
+    transform: translateX(-10px) rotate(-15deg); 
+  }
+  100% { 
+    transform: translateX(0) rotate(0deg); 
+  }
+}
+
+@keyframes ball {
+  0% { 
+    transform: translateX(0) translateY(0); 
+    opacity: 1; 
+  }
+  25% { 
+    transform: translateX(-50px) translateY(-25px); 
+    opacity: 1; 
+  }
+  50% { 
+    transform: translateX(-100px) translateY(-50px); 
+    opacity: 1; 
+  }
+  75% { 
+    transform: translateX(-150px) translateY(-25px); 
+    opacity: 1; 
+  }
+  85% { 
+    transform: translateX(-175px) translateY(-10px); 
+    opacity: 1; 
+  }
+  90% { 
+    transform: translateX(-185px) translateY(-5px); 
+    opacity: 0; 
+  }
+  100% { 
+    transform: translateX(-200px) translateY(0); 
+    opacity: 0; 
+  }
+}
+
+@keyframes batsman {
+  0% { 
+    transform: rotate(0deg); 
+  }
+  60% { 
+    transform: rotate(0deg); 
+  }
+  70% { 
+    transform: rotate(45deg); 
+  }
+  80% { 
+    transform: rotate(0deg); 
+  }
+  100% { 
+    transform: rotate(0deg); 
+  }
+}
+
+@keyframes six {
+  0% { 
+    transform: translateY(0) scale(0.8); 
+    opacity: 0; 
+  }
+  20% { 
+    transform: translateY(-10px) scale(1); 
+    opacity: 1; 
+  }
+  40% { 
+    transform: translateY(-20px) scale(1.1); 
+    opacity: 1; 
+  }
+  60% { 
+    transform: translateY(-30px) scale(1); 
+    opacity: 1; 
+  }
+  80% { 
+    transform: translateY(-40px) scale(0.9); 
+    opacity: 0.5; 
+  }
+  100% { 
+    transform: translateY(-50px) scale(0.8); 
+    opacity: 0; 
+  }
+}
+
+/* Animation Classes */
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease-out;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.6s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.7s ease-out;
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-bounce {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-bowler {
+  animation: bowler 4s ease-in-out infinite;
+}
+
+.animate-ball {
+  animation: ball 4s ease-in-out infinite;
+}
+
+.animate-batsman {
+  animation: batsman 4s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.animate-six {
+  animation: six 4s ease-in-out infinite;
+  animation-delay: 2.2s;
+}
+
+/* Custom Components */
+.btn-primary {
+  @apply bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl;
+}
+
+.btn-secondary {
+  @apply bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl;
+}
+
+.btn-outline {
+  @apply border-2 border-gray-300 text-gray-700 hover:border-blue-500 hover:text-blue-500 px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95;
+}
+
+.btn-ghost {
+  @apply text-gray-600 hover:text-blue-500 hover:bg-blue-50 px-4 py-2 rounded-lg font-medium transition-all duration-200 transform hover:scale-105;
+}
+
+/* Card Components */
+.card {
+  @apply bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden;
+}
+
+.card-hover {
+  @apply transform hover:scale-105 transition-all duration-300;
+}
+
+.glass-effect {
+  @apply bg-white/80 backdrop-blur-sm border border-white/20;
+}
+
+/* Text Utilities */
+.text-gradient {
+  @apply bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent;
+}
+
+.text-gradient-blue {
+  @apply bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent;
+}
+
+.text-gradient-green {
+  @apply bg-gradient-to-r from-green-500 to-green-700 bg-clip-text text-transparent;
+}
+
+/* Loading States */
+.loading-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Hover Effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+/* Form Styles */
+.form-input {
+  @apply w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200;
+}
+
+.form-input:focus {
+  transform: scale(1.02);
+}
+
+.form-label {
+  @apply block text-sm font-medium text-gray-700 mb-2;
+}
+
+/* Navigation Styles */
+.nav-link {
+  @apply text-gray-600 hover:text-blue-500 transition-all duration-200 font-medium;
+}
+
+.nav-link.active {
+  @apply text-blue-500 font-semibold;
+}
+
+/* Product Card Styles */
+.product-card {
+  @apply bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300;
+}
+
+.product-image {
+  @apply w-full h-64 object-cover transition-transform duration-500;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
+}
+
+/* Badge Styles */
+.badge {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold;
+}
+
+.badge-primary {
+  @apply bg-blue-100 text-blue-800;
+}
+
+.badge-secondary {
+  @apply bg-green-100 text-green-800;
+}
+
+.badge-success {
+  @apply bg-green-100 text-green-800;
+}
+
+.badge-warning {
+  @apply bg-yellow-100 text-yellow-800;
+}
+
+.badge-danger {
+  @apply bg-red-100 text-red-800;
+}
+
+/* Grid Patterns */
+.grid-pattern {
+  background-image: 
+    linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.dots-pattern {
+  background-image: radial-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Text Selection */
+::selection {
+  background-color: rgba(59, 130, 246, 0.2);
+  color: #1f2937;
+}
+
+::-moz-selection {
+  background-color: rgba(59, 130, 246, 0.2);
+  color: #1f2937;
+}
+
+/* Focus States */
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Focus Visible for Accessibility */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Remove default focus for mouse users */
+button:focus:not(:focus-visible),
+input:focus:not(:focus-visible),
+textarea:focus:not(:focus-visible),
+select:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Custom Utilities */
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.truncate-multiline {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Smooth Transitions for Common Properties */
+* {
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-break {
+    page-break-before: always;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High Contrast Support */
+@media (prefers-contrast: high) {
+  .card {
+    border: 2px solid #000;
+  }
+  
+  .btn-primary {
+    border: 2px solid #000;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  /* Base dark mode styles can be added here */
+}
+
+/* Mobile First Responsive Design */
+.container-responsive {
+  @apply w-full px-4 sm:px-6 lg:px-8 mx-auto;
+  max-width: 100%;
+}
+
+/* Custom Scroll Snap */
+.snap-container {
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.snap-item {
+  scroll-snap-align: start;
+}
+
+/* Aspect Ratio Utilities */
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+.aspect-portrait {
+  aspect-ratio: 3 / 4;
+}
+
+/* Custom Shadows */
+.shadow-soft {
+  box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.1), 0 10px 20px -2px rgba(0, 0, 0, 0.04);
+}
+
+.shadow-medium {
+  box-shadow: 0 4px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 20px -5px rgba(0, 0, 0, 0.04);
+}
+
+.shadow-strong {
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.2), 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+}
+
+/* Gradient Backgrounds */
+.gradient-primary {
+  background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+}
+
+.gradient-secondary {
+  background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+}
+
+.gradient-light {
+  background: linear-gradient(135deg, #eff6ff 0%, #ecfdf5 100%);
+}
+
+/* Border Radius Utilities */
+.rounded-sm {
+  border-radius: 4px;
+}
+
+.rounded-md {
+  border-radius: 8px;
+}
+
+.rounded-lg {
+  border-radius: 12px;
+}
+
+.rounded-xl {
+  border-radius: 16px;
+}
+
+.rounded-2xl {
+  border-radius: 20px;
+}
+
+.rounded-3xl {
+  border-radius: 24px;
+}
+
+/* Z-index Utilities */
+.z-dropdown {
+  z-index: 1000;
+}
+
+.z-sticky {
+  z-index: 1020;
+}
+
+.z-fixed {
+  z-index: 1030;
+}
+
+.z-modal {
+  z-index: 1040;
+}
+
+.z-popover {
+  z-index: 1050;
+}
+
+.z-tooltip {
+  z-index: 1060;
+}
+
+/* Visibility Utilities */
+.visible {
+  visibility: visible;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+/* Cursor Utilities */
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-not-allowed {
+  cursor: not-allowed;
+}
+
+.cursor-wait {
+  cursor: wait;
+}
+
+/* Selection Utilities */
+.select-none {
+  user-select: none;
+}
+
+.select-text {
+  user-select: text;
+}
+
+.select-all {
+  user-select: all;
+}
+
+/* Pointer Events */
+.pointer-events-none {
+  pointer-events: none;
+}
+
+.pointer-events-auto {
+  pointer-events: auto;
+}
+
+/* Will Change for Performance */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+.will-change-scroll {
+  will-change: scroll-position;
+}

@@ -143,7 +143,7 @@ export default function AdminLogin() {
             <h4 className="text-sm font-semibold text-blue-800 mb-2">Admin Access:</h4>
             <div className="text-xs text-blue-700 space-y-1">
               <p><strong>Primary Admin:</strong> admin@elevatesport.com / admin123</p>
-              <p><strong>Secondary Admin:</strong> admin@example.com / admin456</p>
+              <p><strong>Secondary Admin:</strong> manager@elevatesport.com / manager123</p>
               <p className="mt-2 text-blue-600">Use the "Fill Demo Credentials" button for quick access.</p>
             </div>
           </div>

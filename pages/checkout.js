@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
-import api from '../utils/api';
+import api, { getUploadUrl } from '../utils/api';
 import Link from 'next/link';
 
 export default function Checkout() {
@@ -515,7 +515,7 @@ Please find the payment screenshot attached.`;
                       <div className="w-12 h-12 md:w-16 md:h-16 bg-white rounded-lg border border-gray-200 flex items-center justify-center overflow-hidden">
                         {item.images?.[0] ? (
                           <img
-                            src={`http://localhost:5000/uploads/${item.images[0]}`}
+                            src={getUploadUrl(item.images[0])}
                             alt={item.name}
                             className="w-full h-full object-cover"
                           />

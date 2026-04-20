@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { useRouter } from 'next/router';
-import api from '../../utils/api';
+import api, { getUploadUrl } from '../../utils/api';
 import Link from 'next/link';
 
 export default function UserOrders() {
@@ -117,7 +117,7 @@ export default function UserOrders() {
                         <div className="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center border border-gray-200">
                           {item.image ? (
                             <img
-                              src={`http://localhost:5000/uploads/${item.image}`}
+                              src={getUploadUrl(item.image)}
                               alt={item.name}
                               className="w-full h-full object-cover rounded-lg"
                             />

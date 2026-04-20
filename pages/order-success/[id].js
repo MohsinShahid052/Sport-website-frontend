@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import Link from 'next/link';
-import api from '../../utils/api';
+import api, { getUploadUrl } from '../../utils/api';
 
 export default function OrderSuccess() {
   const router = useRouter();
@@ -158,7 +158,7 @@ export default function OrderSuccess() {
                     <div className="w-16 h-16 bg-white rounded-lg border border-gray-200 flex items-center justify-center overflow-hidden">
                       {item.image ? (
                         <img
-                          src={`http://localhost:5000/uploads/${item.image}`}
+                          src={getUploadUrl(item.image)}
                           alt={item.name}
                           className="w-full h-full object-cover"
                         />

@@ -1,7 +1,11 @@
 import axios from 'axios';
 
+export const BACKEND_BASE_URL = 'http://localhost:5000';
+export const API_BASE_URL = `${BACKEND_BASE_URL}/api`;
+export const getUploadUrl = (fileName = '') => `${BACKEND_BASE_URL}/uploads/${fileName}`;
+
 const api = axios.create({
-  baseURL: 'https://sport-backend-mu.vercel.app/api',
+  baseURL: API_BASE_URL,
   timeout: 15000,
 });
 

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import api from '../utils/api';
+import api, { getUploadUrl } from '../utils/api';
 import { FaSearch, FaFilter, FaTimes, FaChevronDown, FaStar } from 'react-icons/fa';
 
 export default function Shop() {
@@ -361,7 +361,7 @@ export default function Shop() {
                       <div className="relative h-48 bg-gray-100 rounded-xl mb-4 overflow-hidden">
                         {product.images && product.images.length > 0 ? (
                           <img 
-                            src={`http://localhost:5000/uploads/${product.images[0]}`}
+                            src={getUploadUrl(product.images[0])}
                             alt={product.name}
                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                           />

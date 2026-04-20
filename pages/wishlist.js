@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useAuth } from '../context/AuthContext';
+import { getUploadUrl } from '../utils/api';
 
 export default function Wishlist() {
   const [wishlist, setWishlist] = useState([]);
@@ -108,7 +109,7 @@ export default function Wishlist() {
                 <Link href={`/product/${product._id}`} className="relative aspect-square bg-gray-100 overflow-hidden block">
                   {product.images && product.images.length > 0 ? (
                     <img 
-                      src={`http://localhost:5000/uploads/${product.images[0]}`}
+                      src={getUploadUrl(product.images[0])}
                       alt={product.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       onError={(e) => {

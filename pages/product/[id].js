@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { useCart } from '../../context/CartContext';
-import api from '../../utils/api';
+import api, { getUploadUrl } from '../../utils/api';
 import Link from 'next/link';
 
 export default function ProductDetail() {
@@ -175,10 +175,10 @@ export default function ProductDetail() {
     
     if (typeof media === 'string') {
       if (media.includes('.mp4') || media.includes('.mov') || media.includes('.avi')) {
-        return `http://localhost:5000/uploads/${media}`;
+        return getUploadUrl(media);
       }
       if (media.includes('.jpg') || media.includes('.jpeg') || media.includes('.png') || media.includes('.gif')) {
-        return `http://localhost:5000/uploads/${media}`;
+        return getUploadUrl(media);
       }
     }
     return media;

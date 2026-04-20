@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import api from '../utils/api';
+import api, { getUploadUrl } from '../utils/api';
 import { 
   FaStar,
   FaShoppingCart,
@@ -318,7 +318,7 @@ export default function Home() {
                     <Link href={`/product/${product._id}`} className="relative h-64 bg-gray-100 overflow-hidden block">
                       {product.images && product.images.length > 0 ? (
                         <img 
-                          src={`http://localhost:5000/uploads/${product.images[0]}`}
+                          src={getUploadUrl(product.images[0])}
                           alt={product.name}
                           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                         />

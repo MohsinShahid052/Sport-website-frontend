@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext'; // ADD THIS IMPORT
+import { getUploadUrl } from '../utils/api';
 import Link from 'next/link';
 import { FaShoppingBag, FaPlus, FaMinus, FaTrash, FaArrowRight, FaTruck, FaReceipt } from 'react-icons/fa';
 
@@ -85,7 +86,7 @@ export default function Cart() {
     if (item.image && typeof item.image === 'string' && 
         (item.image.includes('.jpg') || item.image.includes('.jpeg') || 
          item.image.includes('.png') || item.image.includes('.gif'))) {
-      return `http://localhost:5000/uploads/${item.image}`;
+      return getUploadUrl(item.image);
     }
     
     // Fallback to emoji based on category

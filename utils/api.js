@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const BACKEND_BASE_URL = 'https://sport-backend-mu.vercel.app/api';
+export const BACKEND_BASE_URL = 'https://sport-backend-mu.vercel.app';
 export const API_BASE_URL = `${BACKEND_BASE_URL}/api`;
 export const getUploadUrl = (fileName = '') => `${BACKEND_BASE_URL}/uploads/${fileName}`;
 
